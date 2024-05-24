@@ -58,9 +58,41 @@ print(valid_teams)  # 輸出合法隊伍數量
 ## 联系方式
 
 - GitHub: (pinyu1012)[https://github.com/pinyu1012]
-- 邮箱: pennychen@gmail.com
+- 邮箱: pennychen1012@gmail.com
 
 #ans4
+import random
+
+def guess_number(x1, x2, n):
+    # 随机生成目标数字
+    target_number = random.randint(x1, x2)
+    
+    # 初始化猜测次数
+    guesses_taken = 0
+    
+    # 提示游戏开始
+    print(f"猜测一个在 {x1} 到 {x2} 之间的数字！")
+    
+    # 开始游戏循环
+    while guesses_taken < n:
+        guess = int(input("你的猜测："))
+        guesses_taken += 1
+        
+        # 判断猜测是否正确
+        if guess == target_number:
+            print(f"恭喜你，猜对了！目标数字是 {target_number}。")
+            break
+        elif guess < target_number:
+            print("太低了！再试试吧。")
+        else:
+            print("太高了！再试试吧。")
+    
+    # 如果猜测次数用尽仍未猜中，显示失败信息
+    if guesses_taken == n and guess != target_number:
+        print(f"很遗憾，你没有在 {n} 次内猜中目标数字。它是 {target_number}。")
+
+# 测试游戏
+guess_number(1, 100, 5)
 
 
 
